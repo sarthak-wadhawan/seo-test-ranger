@@ -149,6 +149,10 @@ h2 {
   overflow-wrap: anywhere;
 }
 
+.welcome h2 {
+  color: #000;
+}
+
 .section-label {
   margin-top: 10px;
   margin: 10px 0 0;
