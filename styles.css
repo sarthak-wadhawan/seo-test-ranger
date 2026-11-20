@@ -163,13 +163,6 @@ h2 {
     text-align: center;
 }
 
-.cse-logo {
-  display: block;
-  width: 180px;
-  max-width: 100%;
-  height: auto;
-}
-
 /* FOOTER: simple settings for layout and spacing. */
 .site-footer {
   width: calc(100% - 32px);
@@ -179,50 +172,35 @@ h2 {
   color: #fff;
 }
 
-/* Move the two main footer sections using these values. */
+/* Shared rows keep contact details and policy links aligned. */
 .footer-inner {
   display: grid;
-  grid-template-columns: 1.2fr 1fr; /* Left section / right section widths */
-  gap: 36px;                     /* Space between left and right */
-  padding: 36px 32px 30px;      /* Top, sides, bottom */
-  align-items: start;
+  grid-template-columns: 1.8fr 2fr;
+  grid-template-rows: repeat(2, minmax(32px, auto));
+  gap: 4px 24px;
+  padding: 20px 24px 16px;
+  align-items: center;
 }
 
-/* Left side: department, contact and review date. */
-.footer-about {
+.footer-about,
+.footer-links {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  align-items: center;
   min-width: 0;
-  padding-left: 0; /* Increase to move left-side text right */
-  padding-top: 0;  /* Increase to move left-side text down */
-}
-
-.footer-about strong {
-  display: block;
-  color: #fff;
-  font-size: 18px;
-  line-height: 1.4;
-  /* No line under CSE Services */
 }
 
 .footer-about p {
-  margin: 12px 0 0;
+  margin: 0;
   color: #fff;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.footer-about .footer-updated {
   font-size: 14px;
+  line-height: 1.4;
 }
 
-/* Right side: links. No white line above them. */
 .footer-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 18px;
-  align-content: start;
-  min-width: 0;
-  padding-left: 0; /* Increase to move links right */
-  padding-top: 0;  /* Increase to move links down */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 16px;
 }
 
 .site-footer a {
@@ -242,22 +220,32 @@ h2 {
 .footer-links a {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  font-size: 15px;
+  min-height: 32px;
+  font-size: 14px;
   line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
-/* Bottom section: copyright. */
+/* Copyright and department share one aligned row. */
 .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 12px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom-right {
+  margin-left: auto;
+  text-align: right;
 }
 
 .footer-bottom p {
   margin: 0;
-  padding: 16px 32px 20px;
   color: #fff;
   font-size: 14px;
+  line-height: 1.4;
 }
 
 /* Preserve styling for the 404 page. */
@@ -320,10 +308,6 @@ h2 {
     padding: 48px 20px;
   }
 
-  .cse-logo {
-    width: 154px;
-  }
-
   /* Simple one-column footer on phones. */
   .site-footer {
     width: calc(100% - 24px);
@@ -332,16 +316,22 @@ h2 {
 
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 28px 20px 24px;
+    grid-template-rows: auto;
+    gap: 4px;
+    padding: 16px 20px;
   }
 
+  .footer-about,
   .footer-links {
-    grid-template-columns: 1fr;
+    grid-row: auto;
+    grid-template-rows: none;
+    grid-auto-rows: minmax(32px, auto);
+    row-gap: 4px;
   }
 
-  .footer-bottom p {
-    padding: 16px 20px 20px;
+  .footer-bottom {
+    flex-wrap: wrap;
+    padding: 12px 20px;
   }
 }
 
