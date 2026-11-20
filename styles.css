@@ -170,12 +170,18 @@ h2 {
   margin: 0 auto 40px;
   background: var(--uta-blue);
   color: #fff;
+  text-align: left;
 }
 
-/* Shared rows keep contact details and policy links aligned. */
-.footer-inner {
+/* A wider contact column keeps both footer rows aligned. */
+.footer-inner,
+.footer-bottom {
   display: grid;
-  grid-template-columns: 1.8fr 2fr;
+  grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.footer-inner {
   grid-template-rows: repeat(2, minmax(32px, auto));
   gap: 4px 24px;
   padding: 20px 24px 16px;
@@ -199,8 +205,8 @@ h2 {
 }
 
 .footer-links {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 16px;
+  grid-column: 2 / 4;
+  grid-template-columns: subgrid;
 }
 
 .site-footer a {
@@ -226,19 +232,21 @@ h2 {
   overflow-wrap: anywhere;
 }
 
-/* Copyright and department share one aligned row. */
+/* Bottom links align with the columns above. */
 .footer-bottom {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 8px 24px;
   padding: 12px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+.footer-bottom-middle {
+  text-align: left;
+}
+
 .footer-bottom-right {
-  margin-left: auto;
-  text-align: right;
+  grid-column: 3;
+  text-align: left;
 }
 
 .footer-bottom p {
@@ -330,8 +338,19 @@ h2 {
   }
 
   .footer-bottom {
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
     padding: 12px 20px;
+  }
+
+  .footer-links {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom-middle,
+  .footer-bottom-right {
+    grid-column: 1;
+    text-align: left;
   }
 }
 
