@@ -1,0 +1,352 @@
+:root {
+  color-scheme: light;
+  --uta-blue: #0064b1;
+  --uta-navy: #003865;
+  --uta-orange: #f58025;
+  --text: #183249;
+  --border: #dbe3eb;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -80px;
+  z-index: 2;
+  padding: 12px 16px;
+  background: #fff;
+  color: var(--uta-navy);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--uta-orange);
+  outline-offset: 4px;
+}
+
+/* The page, header and footer all use the same maximum width. */
+.page {
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 24px auto 40px;
+}
+
+.site-header {
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 24px auto 0;
+  padding: 26px 24px 30px;
+  border-top: 6px solid var(--uta-orange);
+  background: linear-gradient(105deg, var(--uta-blue), var(--uta-navy));
+  color: #fff;
+  text-align: center;
+}
+
+/* Also works if the header and footer are inside .page in your HTML. */
+.page > .site-header,
+.page > .site-footer {
+  width: 100%;
+}
+
+.page > .site-header {
+  margin-top: 0;
+}
+
+/* Also works if the header is immediately before .page. */
+.site-header + .page {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.header-inner {
+  padding: 0;
+}
+
+/* Change width and height here to resize the UTA logo. */
+.uta-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 82px;
+  margin-bottom: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.uta-logo-link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.uta-logo-link:focus-visible {
+  outline-color: #fff;
+}
+
+.uta-logo-fallback {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.university-name {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.375rem);
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.welcome {
+  width: 100%;
+  min-height: 260px;
+  padding: 56px 24px;
+  background: #f3f5f7;
+  border: 1px solid var(--border);
+  border-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4.4vw, 2rem);
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--uta-navy);
+  overflow-wrap: anywhere;
+}
+
+.section-label {
+  margin-top: 10px;
+  margin: 10px 0 0;
+  color: #33485b;
+  font-size: 1rem;
+}
+.section-label_two {
+    font-size: 16px;
+    color: #33485b;
+    font-weight: 400;
+    margin-top: 0;
+    text-align: center;
+}
+
+.cse-logo {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* FOOTER: simple settings for layout and spacing. */
+.site-footer {
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 0 auto 40px;
+  background: var(--uta-blue);
+  color: #fff;
+}
+
+/* Move the two main footer sections using these values. */
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Left section / right section widths */
+  gap: 36px;                     /* Space between left and right */
+  padding: 36px 32px 30px;      /* Top, sides, bottom */
+  align-items: start;
+}
+
+/* Left side: department, contact and review date. */
+.footer-about {
+  min-width: 0;
+  padding-left: 0; /* Increase to move left-side text right */
+  padding-top: 0;  /* Increase to move left-side text down */
+}
+
+.footer-about strong {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.4;
+  /* No line under CSE Services */
+}
+
+.footer-about p {
+  margin: 12px 0 0;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.footer-about .footer-updated {
+  font-size: 14px;
+}
+
+/* Right side: links. No white line above them. */
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 18px;
+  align-content: start;
+  min-width: 0;
+  padding-left: 0; /* Increase to move links right */
+  padding-top: 0;  /* Increase to move links down */
+}
+
+.site-footer a {
+  color: #fff;
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover {
+  text-decoration-color: var(--uta-orange);
+  text-decoration-thickness: 2px;
+}
+
+.site-footer a:focus-visible {
+  outline-color: #fff;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 15px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+/* Bottom section: copyright. */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom p {
+  margin: 0;
+  padding: 16px 32px 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Preserve styling for the 404 page. */
+.error-main {
+  min-height: 250px;
+  padding: clamp(50px, 10vw, 100px) 24px;
+  background: #f3f5f7;
+  border: 1px solid var(--border);
+  border-top: 0;
+  text-align: center;
+}
+
+.error-main h2 {
+  margin-bottom: 14px;
+}
+
+.error-main p {
+  margin: 0 auto 20px;
+  max-width: 490px;
+}
+
+.error-main a {
+  color: var(--uta-navy);
+}
+
+@media (max-width: 540px) {
+  .page {
+    width: calc(100% - 24px);
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+
+  .site-header {
+    width: calc(100% - 24px);
+    margin-top: 12px;
+    padding: 24px 20px;
+  }
+
+  .page > .site-header,
+  .page > .site-footer {
+    width: 100%;
+  }
+
+  .page > .site-header,
+  .site-header + .page {
+    margin-top: 0;
+  }
+
+  .site-header + .page {
+    margin-bottom: 0;
+  }
+
+  .uta-logo-link {
+    width: 155px;
+    height: 72px;
+  }
+
+  .welcome {
+    min-height: 230px;
+    padding: 48px 20px;
+  }
+
+  .cse-logo {
+    width: 154px;
+  }
+
+  /* Simple one-column footer on phones. */
+  .site-footer {
+    width: calc(100% - 24px);
+    margin-bottom: 24px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 20px 24px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom p {
+    padding: 16px 20px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+  }
+}
